@@ -26,8 +26,7 @@ RUN pip install -r requirements.txt
 #RUN python manage.py collectstatic --no-input
 
 # Run migrations
-RUN python manage.py migrate
-
+RUN python manage.py migrate || (echo "⚠️ Migrate failed" && cat /app/fsl_backend/settings.py)
 # Expose port
 EXPOSE 8000
 
