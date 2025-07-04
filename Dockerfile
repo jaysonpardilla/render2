@@ -31,4 +31,4 @@ RUN python manage.py migrate || (echo "⚠️ Migrate failed" && cat /app/fsl_ba
 EXPOSE 8000
 
 # Start the app with gunicorn
-CMD ["gunicorn", "fsl_backend.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
